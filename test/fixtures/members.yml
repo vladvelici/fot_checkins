@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  studentid: "423456789"
+  name: "John"
+  email: jhn@example.com
+  paid: false
+
+two:
+  studentid: "421654987"
+  name: "Dave"
+  email: dv@example.com
+  paid: true
+
+three:
+  studentid: "489456123"
+  name: "Gogu"
+  email: gg@example.com
+  paid: false

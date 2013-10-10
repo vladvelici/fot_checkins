@@ -1,0 +1,36 @@
+<h1>Check in a lot of IDs in one go</h1>
+
+<p>Do <strong>NOT</strong> use this feature at the door.</p>
+
+<p>It is built to check people in at past events or if something went wrong. Errors (such as <em>unpaid</em> or <em>not a member and is not the first event</em>) are not given in useful times while using this.</p>
+
+<% if @errors %>
+	<table cellpadding='7'>
+		<tr><td>Student ID</td><td>Error(s)</td></tr>
+		<% @errors.each do |a, b| %>
+			<tr>
+				<td><%= a %></td>
+				<td>
+					<% b.each do |bfld, bval|  %>
+						<div> <strong><%= bfld %></strong> <%= bval %></div>
+					<% end %>
+				</td>
+			</tr>
+		<% end %>
+	</table>
+<% end %>
+
+<%= form_tag(batch_checkin_process_path, method: "post") do %>
+
+	<div style='padding: 5px'>
+		<strong><%= label_tag(:date, "Date") %></strong><br />
+		<%= date_field_tag(:date) %>
+	</div>
+
+	<div style='padding: 5px'>
+		<strong><%= label_tag(:idlist, "List of Student IDs (one per line please)") %></strong> <br />
+		<%= text_area_tag(:idlist, "", size: "20x20") %>
+	</div>
+
+	<div><%= submit_tag("Check everyone in") %></div>
+<% end %>

@@ -1,0 +1,24 @@
+<h1>Fish on toast check-in system</h1>
+
+
+<% if comitee_signed_in? %>
+
+	<h2>Hi, <%= current_comitee.email %></h2>
+
+	<ul>
+		<li><%= link_to "Check-In System", checkins_path %></li>
+		<li><%= link_to "Membership management", members_path %></li>
+		<li><%= link_to "Sign out", destroy_comitee_session_path, :method => :delete %></li>
+		<li><%= link_to "Change account details", edit_comitee_registration_path %></li>
+	</ul>
+
+
+<% else %>
+
+	<p>You should log in as a member of the comitee to be able to do check-ins and manage memberships.</p>
+
+	<ul>
+		<li><%= link_to "Sign in", new_comitee_session_path %></li>
+	</ul>
+
+<% end %>

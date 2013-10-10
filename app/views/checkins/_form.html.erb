@@ -1,0 +1,50 @@
+<%= form_for(@checkin) do |f| %>
+  <% if @checkin.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@checkin.errors.count, "error") %> prohibited this checkin from being saved:</h2>
+
+      <ul>
+      <% @checkin.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :studentid %><br>
+    <%= f.text_field :studentid %>
+  </div>
+
+
+  <% if @membr != nil %>
+
+    <h3>Edit member inline</h3>
+
+    <div class="field">
+      <%= f.label :m_name %><br>
+      <%= f.text_field :m_name, :value => @membr.name %>
+    </div>
+    <div class="field">
+      <%= f.label :m_email %><br>
+      <%= f.text_field :m_email, :value => @membr.email %>
+    </div>
+    <div class="field">
+      <%= f.label :m_paid %><br>
+      <%= f.check_box :m_paid, :value => @membr.paid %>
+    </div>
+
+  <% end %>
+
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.date_select :date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+document.getElementById('checkin_studentid').focus();
+</script>

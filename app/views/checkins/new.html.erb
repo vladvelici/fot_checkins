@@ -1,0 +1,14 @@
+<h2>Check-ins for today: <%= @today %></h2>
+
+<h1>New checkin</h1>
+
+<% if @checkin.studentid != nil %>
+	<% if @membr != nil && !@membr.new_record? %>
+		<%= link_to "Edit member", edit_member_path(:id => @membr.id) %>
+	<% else %>
+		<%= link_to "New member", new_member_stdid_path(:studentid => @checkin.studentid) %>
+	<% end %>
+<% end %>
+
+<%= render 'form' %>
+<%= link_to 'Back', checkins_path %>

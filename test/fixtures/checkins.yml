@@ -1,0 +1,24 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+# gogu
+
+one:
+  studentid: "489456123"
+  date: 2013-10-03
+
+two:
+  studentid: "489456123"
+  date: 2013-09-29
+
+# dave 
+
+three:
+  studentid: "421654987"
+  date: 2013-10-03
+
+# not a member but been to first event
+four:
+  studentid: "441852963"
+  date: 2013-10-03
+
+# john has no check-ins and has not paid

@@ -65,6 +65,7 @@ class CheckinsController < ApplicationController
         if tmpMember == nil
           tmpMember = Member.new({:studentid => @checkin.studentid})
         end
+        tmpMember.name = params[:checkin][:m_name]
         tmpMember.email = params[:checkin][:m_email]
         tmpMember.paid = params[:checkin][:m_paid]
         tmpMember.save

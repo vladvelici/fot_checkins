@@ -7,7 +7,7 @@ class Checkin < ActiveRecord::Base
 	before_validation :fixStudentId
 
 	def fixStudentId
-		self.studentid = "4" + self.studentid if self.studentid.length == 8
+		self.studentid = self.studentid[1..self.studentid.length] if self.studentid.length == 9
 	end
 
 	def fot_payment_status
